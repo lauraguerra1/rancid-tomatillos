@@ -1,24 +1,26 @@
+import PropTypes from 'prop-types'
 import './SingleMovie.css';
 import MovieCover from '../MovieCover/MovieCover';
 
 const SingleMovie = ({selectedMovie}) => {
 
-  const {title, poster_path: cover, release_date: date, average_rating} = selectedMovie;
+  const {title, poster_path: cover, release_date: date, average_rating, tagline, overview, genres, budget, revenue, runtime} = selectedMovie;
   const movieRating = average_rating.toFixed(2);
+  const genre = genres.map((item, i) => i < genres.length - 1 ? `${item},` : item)
 
   return (
     <div className='movie-detail-container'>
       <MovieCover cover={cover} title={title} />
       <div className='details'>
         <h1>{title}</h1>
-        <p>The world needed a hero. It got Black Adam.</p>
-        <p>Action, Fantasy, Science Fiction</p>
+        <p>{tagline}</p>
+        <p>{genre.join(' ')}</p>
         <p>🍅 {movieRating}</p>
-        <p>Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods—and imprisoned just as quickly—Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.</p>
+        <p>{overview}</p>
         <p>Released: {date}</p>
-        <p>139 minutes</p>
-        <p>Budget: 200000000</p>
-        <p>Revenue: 384571691</p>
+        <p>{runtime} minutes</p>
+        <p>Budget: {budget}</p>
+        <p>Revenue: {revenue}</p>
         
       </div>
     </div>
@@ -26,3 +28,20 @@ const SingleMovie = ({selectedMovie}) => {
 };
 
 export default SingleMovie;
+
+SingleMovie.propTypes = {
+  selectedMovie: PropTypes.shape({
+    "id": PropTypes.number,
+    "title": PropTypes.string.isRequired,
+    "poster_path": PropTypes.string.isRequired,
+    "backdrop_path": PropTypes.string,
+    "release_date": PropTypes.string.isRequired,
+    "overview": PropTypes.string.isRequired,
+    "genres": PropTypes.arrayOf(PropTypes.string).isRequired,
+    "budget": PropTypes.number.isRequired,
+    "revenue": PropTypes.number.isRequired,
+    "runtime": PropTypes.number.isRequired,
+    "tagline": PropTypes.string.isRequired,
+    "average_rating": PropTypes.number.isRequired
+  }).isRequired
+}

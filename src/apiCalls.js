@@ -6,3 +6,8 @@ const handleError = (response) => {
   }
 } 
 
+const getAllMovies = async () => {
+  const response = await fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+  const data = await handleError(response)
+  return data.movies
+}

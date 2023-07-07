@@ -1,3 +1,4 @@
+import PropTypes, { string } from 'prop-types'
 import './MovieCover.css';
 
 const MovieCover = ({cover, title}) => {
@@ -7,3 +8,8 @@ const MovieCover = ({cover, title}) => {
 };
 
 export default MovieCover;
+
+MovieCover.propTypes = {
+  cover: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
+}

@@ -1,8 +1,7 @@
 import './App.css';
-import { useState } from 'react';
-import banner from './images/old-school-theater-banner.png';
-import movieData from './data/data';
-import MoviesBox from './components/MoviesBox/MoviesBox';
+import banner from '../../images/old-school-theater-banner.png';
+import movieData from '../../data/data';
+import MoviesBox from '../MoviesBox/MoviesBox';
 
 function App() {
   return (

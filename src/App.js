@@ -5,7 +5,6 @@ import movieData from './data/data';
 import MoviesBox from './components/MoviesBox/MoviesBox';
 
 function App() {
-  console.log(movieData.movies)
   return (
     <main className="main-app">
       <img className='main-title' src={banner} alt='old school theater banner with the title rancid tomatillos' />

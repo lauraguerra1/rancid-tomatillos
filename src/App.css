@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: rgba(30, 6, 9, 1);
+}
+
 .main-title {
   width: 100%;
   max-width: 700px;
@@ -13,5 +17,4 @@
 .main-app {
   width: fit-content;
   text-align: center;
-  background-color: rgba(30, 6, 9, 1);
 }

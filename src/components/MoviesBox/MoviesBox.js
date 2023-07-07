@@ -6,7 +6,6 @@ const MoviesBox = ({movies, viewMovie}) => {
   const movieCovers = movies.map(movie => {
     const { average_rating, poster_path: cover, title, id} = movie;
     const movieRating = average_rating.toFixed(2);
-    console.log(title)
       
     return (
       <div className='cover-container' key={id} onClick={() => viewMovie(id)}>

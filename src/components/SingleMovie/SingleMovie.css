@@ -1,0 +1,28 @@
+.movie-detail-container {
+  margin: 2em;
+}
+
+.details {
+  text-align: left;
+  background-color: bisque;
+  padding: 1.5em;
+  margin-top: 2em;
+}
+
+.details p {
+  padding: .2em 0;
+}
+
+@media (min-width: 767px) {
+  .movie-detail-container {
+    display: flex;
+    justify-content: center;
+    min-height: 550px;
+  }
+  
+  .details {
+    margin-top: 0;
+    margin-left: 2em;
+    padding: 4em;
+  }
+}

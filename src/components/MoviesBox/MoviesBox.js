@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import './MoviesBox.css';
 import MovieCover from '../MovieCover/MovieCover';
 
@@ -23,3 +24,15 @@ const MoviesBox = ({movies, viewMovie}) => {
 };
 
 export default MoviesBox;
+
+MoviesBox.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.shape({
+    "id": PropTypes.number.isRequired,
+    "poster_path": PropTypes.string.isRequired,
+    "backdrop_path": PropTypes.string.isRequired,
+    "title": PropTypes.string.isRequired,
+    "average_rating": PropTypes.number.isRequired,
+    "release_date": PropTypes.string.isRequired
+  }).isRequired).isRequired,
+  viewMovie: PropTypes.func.isRequired
+}

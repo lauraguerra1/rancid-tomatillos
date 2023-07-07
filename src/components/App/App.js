@@ -1,6 +1,5 @@
 import './App.css';
 import banner from '../../images/old-school-theater-banner.png';
-import movieData from '../../data/data';
 import MoviesBox from '../MoviesBox/MoviesBox';
 import SingleMovie from '../SingleMovie/SingleMovie';
 import ExitMovie from '../ExitMovie/ExitMovie';

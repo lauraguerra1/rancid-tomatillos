@@ -11,3 +11,5 @@ const getAllMovies = async () => {
   const data = await handleError(response)
   return data.movies
 }
+
+export {getAllMovies}

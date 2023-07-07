@@ -5,10 +5,9 @@ import MoviesBox from './components/MoviesBox/MoviesBox';
 
 function App() {
   return (
-    <main className="App">
-      <div className='title'>
-        <img src={banner} alt='old school theater banner with the title rancid tomatillos' />
-      </div>
+    <main className="main-app">
+      <img className='main-title' src={banner} alt='old school theater banner with the title rancid tomatillos' />
+      <MoviesBox movieData={movieData} />
     </main>
   );
 }

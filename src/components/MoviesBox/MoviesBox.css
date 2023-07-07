@@ -1,0 +1,16 @@
+.movie-container {
+  width: 100;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 2rem;
+  gap: 2rem;
+}
+
+.rating {
+  color: rgb(255, 255, 255);
+  font-size: 1.3rem;
+  padding-top: .4em;
+  padding-left: 2em;
+  text-align: left;
+}

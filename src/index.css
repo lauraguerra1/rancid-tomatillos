@@ -20,9 +20,8 @@ code {
 }
 
 .loading {
-  border: 16px solid #f3f3f3; 
-  border-top: 16px solid #f03737; 
-  border-bottom: 16px solid #f03737; 
+  border: 8px solid #f41c1c; 
+  border-top: 8px solid rgba(30, 6, 9, 1); 
   border-radius: 50%;
   width: 100px;
   height: 100px;

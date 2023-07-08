@@ -10,7 +10,7 @@ const SingleMovie = ({selectedMovie}) => {
 
   return (
     <div className='movie-detail-container'>
-      <MovieCover cover={cover} title={title} />
+      <MovieCover cover={cover} title={title} size={'large-movie-cover'}/>
       <div className='details'>
         <h1>{title}</h1>
         <p>{tagline}</p>
@@ -21,7 +21,6 @@ const SingleMovie = ({selectedMovie}) => {
         <p>{runtime} minutes</p>
         <p>Budget: {budget}</p>
         <p>Revenue: {revenue}</p>
-        
       </div>
     </div>
   );

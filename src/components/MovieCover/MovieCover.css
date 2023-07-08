@@ -1,5 +1,5 @@
 .movie-cover {
-  max-height: 550px;
+  max-width: 100%;
 }
 
 .mini-movie-cover:hover {
@@ -9,3 +9,20 @@
 }
 
 
+@media screen and (min-width: 600px){
+  .movie-cover {
+    max-width: 250px;
+  }
+}
+
+@media screen and (min-width: 1050px){
+  .movie-cover {
+    max-width: 300px;
+  }
+}
+
+@media screen and (min-width: 1500px){
+  .movie-cover {
+    max-width: 400px;
+  }
+}

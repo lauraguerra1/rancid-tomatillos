@@ -21,6 +21,7 @@ function App() {
         setLoading(false)
       } catch (error) {
         setError(error)
+        setLoading(false)
       }
     }
   
@@ -53,7 +54,7 @@ function App() {
 
   return (
     <main className="main-app">
-      {error && <h1 style={{color: 'red'}}>Something went wrong, please try again</h1>}
+      {error && <h1 style={{color: 'red'}}>{error.message}</h1>}
       {singleMovie ? 
         <>
           <ExitMovie viewAll={viewAll} />

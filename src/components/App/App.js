@@ -35,7 +35,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    if(movieNeeded) fetchApi(getSingleMovie, setSingleMovie, movieNeeded.id)
+    if(movieNeeded) fetchApi(getSingleMovie, setSingleMovie, movieNeeded)
 
     return () => {
       setMovieNeeded(null)
@@ -44,8 +44,7 @@ function App() {
   }, [movieNeeded])
 
   const viewMovie = (id) => {
-    const selectedMovie = allMovies.find(movie => movie.id === id);
-    setMovieNeeded(selectedMovie)
+    setMovieNeeded(id)
   };
 
   const viewAll = () => {

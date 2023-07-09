@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import exitBanner from '../../images/old-school-return-banner.png'
 
 const ExitMovie = ({viewAll}) => {
@@ -5,3 +6,7 @@ const ExitMovie = ({viewAll}) => {
 };
 
 export default ExitMovie;
+
+ExitMovie.propTypes = {
+  viewAll: PropTypes.func.isRequired
+}

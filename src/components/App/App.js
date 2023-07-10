@@ -48,6 +48,7 @@ function App() {
   };
 
   const viewAll = () => {
+    console.log('fjasdkl')
     setSingleMovie(null);
   };
 

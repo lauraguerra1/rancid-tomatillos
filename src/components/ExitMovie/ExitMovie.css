@@ -3,9 +3,14 @@
   width: 45%;
   right: -9%;
   top: 5.5%;
+  border: none;
+  background: none;
 }
 
 .exit-movie:hover, .exit-movie:focus {
   cursor: pointer;
   transform: scale(1.05);
+}
+.exit-movie-img {
+  width: 100%;
 }

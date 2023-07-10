@@ -3,13 +3,11 @@ import './ExitMovie.css'
 import exitBanner from '../../images/exit-arrow.png'
 
 const ExitMovie = ({viewAll}) => {
-  return <img 
-    className='exit-movie' 
-    src={exitBanner} alt='old school theater banner with the title rancid tomatillos' 
-    onClick={viewAll} 
-    onKeyDown={(e) => e.code === 'Enter' && viewAll()} 
-    tabIndex={0}
-  />
+  return (
+    <button className='exit-movie' onClick={viewAll}>
+      <img className='exit-movie-img' src={exitBanner} alt='return to page with all movies' />
+    </button>
+  );
 };
 
 export default ExitMovie;

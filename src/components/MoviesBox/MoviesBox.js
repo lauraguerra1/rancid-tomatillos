@@ -9,10 +9,10 @@ const MoviesBox = ({movies, viewMovie}) => {
     const movieRating = average_rating.toFixed(2);
       
     return (
-      <div className='cover-container' key={id} onClick={() => viewMovie(id)}>
+      <a href='#' className='cover-container' key={id} onClick={() => viewMovie(id)}>
         <MovieCover cover={cover} title={title} size={'mini-movie-cover'}/>
         <p className='rating'>🍅 {movieRating}</p>
-      </div> 
+      </a> 
     );
   });
 

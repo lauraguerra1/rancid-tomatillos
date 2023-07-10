@@ -1,9 +1,13 @@
 import PropTypes from 'prop-types'
 import './ExitMovie.css'
-import exitBanner from '../../images/old-school-return-banner.png'
+import exitBanner from '../../images/exit-arrow.png'
 
 const ExitMovie = ({viewAll}) => {
-  return <img className='main-title exit-movie' src={exitBanner} alt='old school theater banner with the title rancid tomatillos' onClick={viewAll}/>
+  return (
+    <button className='exit-movie' onClick={viewAll}>
+      <img className='exit-movie-img' src={exitBanner} alt='return to page with all movies' />
+    </button>
+  );
 };
 
 export default ExitMovie;

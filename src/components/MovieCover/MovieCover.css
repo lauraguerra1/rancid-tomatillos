@@ -2,6 +2,10 @@
   max-width: 100%;
 }
 
+a {
+  text-decoration: none;
+}
+
 .mini-movie-cover:hover, .mini-movie-cover:focus {
   cursor: pointer; 
   transform: scale(1.05);

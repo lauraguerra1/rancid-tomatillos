@@ -53,10 +53,10 @@ function App() {
 
   return (
     <main className="main-app">
-      <div className='title-container'>
+      <figure className='title-container'>
         <img className='main-title' src={banner} alt='old school theater banner with the title rancid tomatillos' />
         {singleMovie && <ExitMovie viewAll={viewAll} />}
-      </div>
+      </figure>
       {error && <h1 style={{color: 'red'}}>{error.message}</h1>}
       {singleMovie ? 
           <SingleMovie selectedMovie={singleMovie} /> 

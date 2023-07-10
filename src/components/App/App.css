@@ -4,6 +4,12 @@
   margin-bottom: 1em;
 }
 
+.title-container {
+  max-width: 700px;
+  display: inline-block;
+  position: relative;
+}
+
 .main-app {
   width: 100%;
   text-align: center;

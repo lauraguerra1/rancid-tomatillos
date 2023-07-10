@@ -1,3 +1,10 @@
+.exit-movie {
+  position: absolute;
+  width: 45%;
+  right: -9%;
+  top: 5.5%;
+}
+
 .exit-movie:hover {
   cursor: pointer;
   transform: scale(1.05)

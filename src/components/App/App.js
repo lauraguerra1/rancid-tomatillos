@@ -53,14 +53,15 @@ function App() {
 
   return (
     <main className="main-app">
+      <div className='title-container'>
+        <img className='main-title' src={banner} alt='old school theater banner with the title rancid tomatillos' />
+        {singleMovie && <ExitMovie viewAll={viewAll} />}
+      </div>
       {error && <h1 style={{color: 'red'}}>{error.message}</h1>}
       {singleMovie ? 
-        <>
-          <ExitMovie viewAll={viewAll} />
           <SingleMovie selectedMovie={singleMovie} /> 
-        </> : 
+        : 
         <>
-          <img className='main-title' src={banner} alt='old school theater banner with the title rancid tomatillos' />
           {loading && <div className='loading-container'><span className='loading'></span></div>}
           <MoviesBox movies={allMovies} viewMovie={viewMovie}/>
         </>

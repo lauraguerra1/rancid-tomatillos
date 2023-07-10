@@ -7,6 +7,9 @@ describe('single movie page', () => {
     })
   }
 
+  let blackAdam;
+  let riseOfDamned;
+
   beforeEach(() => {
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
       statusCode: 200,
@@ -41,10 +44,8 @@ describe('single movie page', () => {
     
     })
     .visit('http://localhost:3000')
-  })
 
-  it('should select a movie', () => {
-    const blackAdam = {
+    blackAdam = {
       "movie": {
       "id": 436270,
       "title": "Black Adam",
@@ -63,7 +64,32 @@ describe('single movie page', () => {
       "tagline": "The world needed a hero. It got Black Adam.",
       "average_rating": 4
       }
+    }
+
+    riseOfDamned = {
+      "movie": {
+      "id": 1013860,
+      "title": "R.I.P.D. 2: Rise of the Damned",
+      "poster_path": "https://image.tmdb.org/t/p/original//g4yJTzMtOBUTAR2Qnmj8TYIcFVq.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original//kmzppWh7ljL6K9fXW72bPN3gKwu.jpg",
+      "release_date": "2022-11-15",
+      "overview": "When Sheriff Roy Pulsipher finds himself in the afterlife, he joins a special police force and returns to Earth to save humanity from the undead.",
+      "genres": [
+      "Fantasy",
+      "Action",
+      "Comedy",
+      "Crime"
+      ],
+      "budget": 130,
+      "revenue": 78324220,
+      "runtime": 102,
+      "tagline": "Meet the new law of the Afterlife.",
+      "average_rating": 7
       }
+    }
+  })
+
+  it('should select a movie and see it\'s details and return home', () => {
     stubSingleFetch(436270, 200, blackAdam)
     cy.get('.cover-container').first().find('.movie-cover[alt="Black Adam"]').click()
       .get('.movie-detail-container').children().should('have.length', 2)
@@ -71,6 +97,35 @@ describe('single movie page', () => {
       .get('.details').children().should('have.length', 9)
       .get('.details').contains('h1', 'Black Adam')
       .get('.details').contains('p', 'Released: 2022-10-19')
-      .get('.exit-movie').find('.exit-movie-img')
+      .get('.exit-movie').find('.exit-movie-img').click()
+      .get('.movie-container').find('.cover-container').should('have.length', 3)
+  })
+
+  it('should select a different movie and see it\'s details and return home', () => {
+    stubSingleFetch(1013860, 200, riseOfDamned)
+    cy.get('.cover-container').next().find('.movie-cover[alt="R.I.P.D. 2: Rise of the Damned"]').click()
+      .get('.movie-detail-container').children().should('have.length', 2)
+      .get('.movie-detail-container').find('.movie-cover[alt="R.I.P.D. 2: Rise of the Damned"]')
+      .get('.details').children().should('have.length', 9)
+      .get('.details').contains('h1', 'R.I.P.D. 2: Rise of the Damned')
+      .get('.details').contains('p', 'Released: 2022-11-15')
+      .get('.exit-movie').find('.exit-movie-img').click()
+      .get('.movie-container').find('.cover-container').should('have.length', 3)
+  })
+
+  it('should display a 500 level error', () => {
+    stubSingleFetch(436270, 500, blackAdam)
+    cy.get('.cover-container').first().find('.movie-cover[alt="Black Adam"]').click()
+      .get('.title-container').find('.main-title')
+      .get('main').contains('h1', 'HTTP Error: 500 -- Please try again')
+      .get('.movie-container').find('.cover-container').should('have.length', 3)
+  })
+
+  it('should display a 404 error', () => {
+    stubSingleFetch(436270, 404, blackAdam)
+    cy.get('.cover-container').first().find('.movie-cover[alt="Black Adam"]').click()
+      .get('.title-container').find('.main-title')
+      .get('main').contains('h1', 'HTTP Error: 404 -- Please try again')
+      .get('.movie-container').find('.cover-container').should('have.length', 3)
   })
 })

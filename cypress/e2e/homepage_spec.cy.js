@@ -52,11 +52,11 @@ describe('template spec', () => {
     .get('main').contains('h1', 'HTTP Error: 500 -- Please try again')
   })
   
-  it('should display a 400 level error', () => {
+  it('should display a 404 error', () => {
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
-      statusCode: 400})
+      statusCode: 404})
     .visit('http://localhost:3000')
     .get('.title-container').find('.main-title')
-    .get('main').contains('h1', 'HTTP Error: 400 -- Please try again')
+    .get('main').contains('h1', 'HTTP Error: 404 -- Please try again')
   })
 })

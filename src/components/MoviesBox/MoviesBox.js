@@ -10,7 +10,7 @@ const MoviesBox = ({movies, viewMovie}) => {
       
     return (
       <div className='cover-container' key={id} onClick={() => viewMovie(id)}>
-        <MovieCover cover={cover} title={title} />
+        <MovieCover cover={cover} title={title} size={'mini-movie-cover'}/>
         <p className='rating'>🍅 {movieRating}</p>
       </div> 
     );

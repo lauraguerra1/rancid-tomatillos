@@ -61,7 +61,7 @@ function App() {
         </> : 
         <>
           <img className='main-title' src={banner} alt='old school theater banner with the title rancid tomatillos' />
-          {loading && <h2 style={{color: 'red'}}>Loading...</h2>}
+          {loading && <div className='loading-container'><span className='loading'></span></div>}
           <MoviesBox movies={allMovies} viewMovie={viewMovie}/>
         </>
       }

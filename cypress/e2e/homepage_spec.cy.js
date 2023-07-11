@@ -35,7 +35,8 @@ describe('template spec', () => {
   })
 
   it('should display a banner and movie list', () => {
-    cy.get('.title-container').find('.main-title')
+    cy.url().should('eq', 'http://localhost:3000/')
+      .get('.title-container').find('.main-title')
       .get('.movie-container').find('.cover-container').should('have.length', 3)
       .get('.cover-container').first().find('.movie-cover[alt="Black Adam"]')
       .get('.cover-container').first().contains('p', '🍅 4.00')

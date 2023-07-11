@@ -44,19 +44,7 @@ useEffect(() => {
 
 export default SingleMovie;
 
-// SingleMovie.propTypes = {
-//   selectedMovie: PropTypes.shape({
-//     "id": PropTypes.number,
-//     "title": PropTypes.string.isRequired,
-//     "poster_path": PropTypes.string.isRequired,
-//     "backdrop_path": PropTypes.string,
-//     "release_date": PropTypes.string.isRequired,
-//     "overview": PropTypes.string.isRequired,
-//     "genres": PropTypes.arrayOf(PropTypes.string).isRequired,
-//     "budget": PropTypes.number.isRequired,
-//     "revenue": PropTypes.number.isRequired,
-//     "runtime": PropTypes.number.isRequired,
-//     "tagline": PropTypes.string.isRequired,
-//     "average_rating": PropTypes.number.isRequired
-//   }).isRequired
-// }
+SingleMovie.propTypes = {
+  fetchApi: PropTypes.func.isRequired,
+  setError: PropTypes.func.isRequired
+}

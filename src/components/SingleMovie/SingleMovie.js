@@ -3,6 +3,7 @@ import './SingleMovie.css';
 import MovieCover from '../MovieCover/MovieCover';
 
 const SingleMovie = ({selectedMovie}) => {
+  console.log(selectedMovie)
 
   const {title, poster_path: cover, release_date: date, average_rating, tagline, overview, genres, budget, revenue, runtime} = selectedMovie;
   const movieRating = average_rating.toFixed(2);

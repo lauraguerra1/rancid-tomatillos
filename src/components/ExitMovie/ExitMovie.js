@@ -1,17 +1,13 @@
-import PropTypes from 'prop-types'
 import './ExitMovie.css'
 import exitBanner from '../../images/exit-arrow.png'
+import {Link} from 'react-router-dom'
 
-const ExitMovie = ({viewAll}) => {
+const ExitMovie = () => {
   return (
-    <button className='exit-movie' onClick={viewAll}>
+    <Link to="/" className='exit-movie'>
       <img className='exit-movie-img' src={exitBanner} alt='return to page with all movies' />
-    </button>
+    </Link>
   );
 };
 
 export default ExitMovie;
-
-ExitMovie.propTypes = {
-  viewAll: PropTypes.func.isRequired
-}

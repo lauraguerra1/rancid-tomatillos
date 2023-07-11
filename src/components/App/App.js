@@ -4,15 +4,14 @@ import MoviesBox from '../MoviesBox/MoviesBox';
 import SingleMovie from '../SingleMovie/SingleMovie';
 import ExitMovie from '../ExitMovie/ExitMovie';
 import { useState, useEffect } from 'react';
-import { getAllMovies, getSingleMovie } from '../../apiCalls';
-import { Routes, Route} from 'react-router-dom'
+import { getAllMovies } from '../../apiCalls';
+import { Routes, Route, useLocation} from 'react-router-dom'
 
 function App() {
   const [allMovies, setAllMovies] = useState([]);
-  // const [singleMovie, setSingleMovie] = useState(null);
-  const [movieNeeded, setMovieNeeded] = useState(null);
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const location = useLocation();
 
   const fetchApi = (request, setter, id) => {
     setLoading(true)
@@ -35,53 +34,17 @@ function App() {
     return () => setError('')
   }, [])
 
-  // useEffect(() => {
-  //   console.log('app useEffect start movieNeeded', movieNeeded)
-  //   if(movieNeeded) fetchApi(getSingleMovie, setSingleMovie, movieNeeded)
-  //   console.log('APP useEffect movieNeeded', singleMovie)
-  //   console.log('app useEffect AFTER movieNeeded', movieNeeded)
-  //   return () => {
-    
-  //     setMovieNeeded(null)
-  //     setError('')
-  //   }
-  // }, [movieNeeded])
-
-  // const viewMovie = (id) => {
-  //   setMovieNeeded(() => {
-  //   console.log('set Movie', id)
-  //   return id
-  //   })
-  //   console.log('from ViewMovie', movieNeeded)
-  //   console.log('from APP viewMovie', id)
-  // };
-
-  // const viewAll = () => {
-  //   setSingleMovie(null);
-  // };
-
   return (
     <main className="main-app">
       <figure className='title-container'>
         <img className='main-title' src={banner} alt='old school theater banner with the title rancid tomatillos' />
-        {/* {singleMovie && <ExitMovie viewAll={viewAll} />} */}
-        <ExitMovie />
+        {location.pathname !== "/" && <ExitMovie />}
       </figure>
       {error && <h1 style={{color: 'red'}}>{error.message}</h1>}
       {loading && <div className='loading-container'><span className='loading'></span></div>}
       <Routes>
         <Route path="/" element={<MoviesBox movies={allMovies}  />} />
         <Route path='/:id' element={<SingleMovie fetchApi={fetchApi} setError={setError} />} />
-
-        {/* {error && <h1 style={{color: 'red'}}>{error.message}</h1>}
-        {singleMovie ? 
-            <SingleMovie selectedMovie={singleMovie} /> 
-          : 
-          <>
-            {loading && <div className='loading-container'><span className='loading'></span></div>}
-            <MoviesBox movies={allMovies} viewMovie={viewMovie}/>
-          </>
-        } */}
       </Routes>
     </main>
   );

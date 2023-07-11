@@ -8,30 +8,18 @@ import { getSingleMovie } from '../../apiCalls';
 
 const SingleMovie = ({fetchApi, setError}) => {
   const [singleMovie, setSingleMovie] = useState(null);
-  console.log(fetchApi)
-  console.log('Param', useParams())
   const {id} = useParams()
 
 useEffect(() => {
-  // console.log('app useEffect start movieNeeded', movieNeeded)
   fetchApi(getSingleMovie, setSingleMovie, id)
-  // console.log('APP useEffect movieNeeded', singleMovie)
-  // console.log('app useEffect AFTER movieNeeded', movieNeeded)
-  return () => {
 
+  return () => {
     setError('')
   }
 }, [])
-
-  // useEffect(() => {
-    // }, [singleMovie])
     
   if(singleMovie) {
-
     const {title, poster_path: cover, release_date: date, average_rating, tagline, overview, genres, budget, revenue, runtime} = singleMovie;
-    
-  
-    console.log(singleMovie)
     const movieRating = average_rating.toFixed(2);
     const genre = genres.map((item, i) => i < genres.length - 1 ? `${item},` : item)
   

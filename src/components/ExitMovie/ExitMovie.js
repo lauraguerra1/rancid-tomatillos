@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import './ExitMovie.css'
 import exitBanner from '../../images/exit-arrow.png'
 import {Link} from 'react-router-dom'

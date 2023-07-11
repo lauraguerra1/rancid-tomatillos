@@ -3,7 +3,7 @@ import './MoviesBox.css';
 import MovieCover from '../MovieCover/MovieCover';
 import { Link } from 'react-router-dom'
 
-const MoviesBox = ({movies, viewMovie}) => {
+const MoviesBox = ({movies}) => {
 
   
   const movieCovers = movies.map(movie => {
@@ -11,7 +11,7 @@ const MoviesBox = ({movies, viewMovie}) => {
     const movieRating = average_rating.toFixed(2);
       
     return (
-      <Link to={`${id}`} className='cover-container' key={id} onClick={() => viewMovie(id)}>
+      <Link to={`${id}`} className='cover-container' key={id} >
         <MovieCover cover={cover} title={title} size={'mini-movie-cover'}/>
         <p className='rating'>🍅 {movieRating}</p>
       </Link> 

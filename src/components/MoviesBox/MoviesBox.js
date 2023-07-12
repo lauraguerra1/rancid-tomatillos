@@ -18,12 +18,13 @@ const MoviesBox = ({movies, loading}) => {
   }
   const filterMovies = (title, rating) => {
     const splitRating = JSON.parse(rating)
-
+    const [ min, max ] = splitRating
     setFilteredMovies(movies.filter(movie => {
       const titleIncluded = movie.title.toLowerCase().includes(title.toLowerCase())
-      const min = movie['average_rating'] >= parseInt(splitRating[0]) 
-      const max = movie['average_rating'] <= parseInt(splitRating[1])
-      return titleIncluded && min && max ? true : false
+      const ratingIsGreater = movie['average_rating'] >= parseInt(min) 
+      const ratingIsSmaller = movie['average_rating'] <= parseInt(max)
+
+      return titleIncluded && ratingIsGreater && ratingIsSmaller ? true : false
     }))
   }
   
@@ -32,13 +33,12 @@ const MoviesBox = ({movies, loading}) => {
     const movieRating = average_rating.toFixed(2);
       
     return (
-      <Link to={`${id}`} className='cover-container' key={id} >
+      <Link to={`${id}`} className='cover-container' key={id}>
         <MovieCover cover={cover} title={title} size={'mini-movie-cover'}/>
         <p className='rating'>🍅 {movieRating}</p>
       </Link> 
     );
   });
-  console.log(loading)
 
   return (
     <>

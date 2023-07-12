@@ -1,5 +1,6 @@
 import './Form.css'
 import { useEffect, useState } from "react"
+import PropTypes from 'prop-types'
 
 const Form = ({resetMovies, filterMovies}) => {
   const [searchData, setSearchData] = useState('')
@@ -38,3 +39,8 @@ const Form = ({resetMovies, filterMovies}) => {
 }
 
 export default Form
+
+Form.propTypes = {
+  resetMovies: PropTypes.func.isRequired,
+  filterMovies: PropTypes.func.isRequired
+}

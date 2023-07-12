@@ -1,4 +1,4 @@
-describe('template spec', () => {
+describe('Home page view', () => {
   beforeEach(() => {
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
       statusCode: 200,
@@ -7,9 +7,12 @@ describe('template spec', () => {
     .visit('http://localhost:3000')
   })
 
-  it('should display a banner and movie list', () => {
+  it('should display a banner, a search form, and movie list', () => {
     cy.url().should('eq', 'http://localhost:3000/')
       .get('.title-container').find('.main-title')
+      .get('.search-container').find('input[placeholder="search movie title"]')
+      .get('.search-container').find('.search-rating')
+      .get('.search-container').find('#clear-search-btn')
       .get('.movie-container').find('.cover-container').should('have.length', 3)
       .get('.cover-container').first().find('.movie-cover[alt="Black Adam"]')
       .get('.cover-container').first().contains('p', '🍅 4.00')

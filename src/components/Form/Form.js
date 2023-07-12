@@ -21,21 +21,22 @@ const Form = ({resetMovies, filterMovies}) => {
     filterMovies(searchData, selectData)
   }, [searchData, selectData])
 
-
   return (
-    <div className='form-container'>
-      <form onSubmit={(e) => e.preventDefault()}>
-        <input type='search' onChange={searchMovies} value={searchData} placeholder='search for a movie title'/>
-        <select onChange={(e) => setSelectData(e.target.value)} value={selectData}>
-          <option value={'["0","10"]'}>Any</option>
-          <option value={'["8","10"]'}>8-10</option>
-          <option value={'["6","8"]'}>6-8</option>
-          <option value={'["4","6"]'}>4-6</option>
-          <option value={'["2","4"]'}>2-4</option>
-          <option value={'["0","2"]'}>0-2</option>
-        </select>
-      </form>
-      <button className='material-symbols-outlined' onClick={clearSearch}>cancel</button>
+    <div className='search-container'>
+      <div className='form-container'>
+        <form className='search-movies' onSubmit={(e) => e.preventDefault()}>
+          <input type='search' onChange={searchMovies} value={searchData} placeholder='search movie title'/>
+          <select className='search-rating' onChange={(e) => setSelectData(e.target.value)} value={selectData}>
+            <option value={'["0","10"]'}>All Ratings</option>
+            <option value={'["8","10"]'}>8-10</option>
+            <option value={'["6","8"]'}>6-8</option>
+            <option value={'["4","6"]'}>4-6</option>
+            <option value={'["2","4"]'}>2-4</option>
+            <option value={'["0","2"]'}>0-2</option>
+          </select>
+        </form>
+        <button className='material-symbols-outlined' id='clear-search-btn' onClick={clearSearch}>cancel</button>
+      </div>
     </div>
   )
 }

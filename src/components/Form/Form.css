@@ -1,6 +1,62 @@
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  justify-self: center;
+  gap: 1em;
+  max-width: 500px;
+  margin: auto;
+}
+
+.search-container {
+  margin: 0 2em 1em 2em;
+}
+
 input[type='search'] {
-  width: 250px;
+  width: 100%;
   height: 30px;
   border-radius: 15px;
   text-align: center;
+  padding: 0 4em;
+  overflow: visible;
+}
+
+input::placeholder {
+    overflow: visible;
+}
+
+.search-movies {
+  display: flex;
+  gap: 1em;
+  width: 100%;
+}
+
+.search-rating {
+  border-radius: 15px;
+  padding: 0 .7em;
+  height: 30px;
+}
+
+#clear-search-btn {
+  border: none;
+  background: none;
+  color: #fff;
+  font-size: 2rem;
+}
+
+@media (max-width: 390px) {
+  .search-movies, .form-container {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  input[type='search'] {
+    padding: 0 1em;
+  }
+}
+
+@media (max-width: 510px) {
+  input[type='search'] {
+    padding: 0 2em;
+  }
 }

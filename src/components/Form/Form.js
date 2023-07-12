@@ -2,12 +2,13 @@ import { useEffect, useState } from "react"
 
 const Form = ({resetMovies, filterByTitle, filterByRating}) => {
   const [searchData, setSearchData] = useState('')
-  const [selectData, setSelectData] = useState('')
+  const [selectData, setSelectData] = useState(0)
 
   const clearSearch = (e) => {
     e.preventDefault()
     resetMovies()
     setSearchData('')
+    setSelectData(0)
   }
 
   const searchMovies = (e) => {
@@ -32,6 +33,7 @@ const Form = ({resetMovies, filterByTitle, filterByRating}) => {
         <option value='5'>Over 5 stars</option>
         <option value='3'>Over 3 stars</option>
       </select>
+      <button>Clear Search</button>
     </form>
   )
 }

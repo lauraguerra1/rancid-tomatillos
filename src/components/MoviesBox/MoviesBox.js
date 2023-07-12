@@ -16,6 +16,9 @@ const MoviesBox = ({movies}) => {
   const resetMovies = () => {
     setFilteredMovies(movies)
   }
+  const filterMovies = (title, rating) => {
+    setFilteredMovies(movies.filter(movie => movie.title.toLowerCase().includes(title.toLowerCase()) && movie['average_rating'] >= parseInt(rating)))
+  }
 
   const filterByTitle = (title) => {  
     setFilteredMovies(movies.filter(movie => movie.title.toLowerCase().includes(title.toLowerCase())))
@@ -43,7 +46,7 @@ const MoviesBox = ({movies}) => {
 
   return (
     <>
-      <Form resetMovies={resetMovies} filterByTitle={filterByTitle} filterByRating={filterByRating}/> 
+      <Form resetMovies={resetMovies} filterMovies={filterMovies}/> 
       <div className='movie-container'>
         {movieCovers}
         {!filteredMovies.length && <p style={{color: 'red'}}>'Sorry, no movies to display! Try a different search'</p>}

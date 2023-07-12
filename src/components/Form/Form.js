@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-const Form = ({resetMovies, filterByTitle, filterByRating}) => {
+const Form = ({resetMovies, filterMovies}) => {
   const [searchData, setSearchData] = useState('')
   const [selectData, setSelectData] = useState(0)
 
@@ -16,18 +16,15 @@ const Form = ({resetMovies, filterByTitle, filterByRating}) => {
   }
 
   useEffect(() => {
-    filterByTitle(searchData)
-  }, [searchData])
+    filterMovies(searchData, selectData)
+  }, [searchData, selectData])
 
-  useEffect(() => {
-    console.log(selectData)
-    filterByRating(selectData)
-  }, [selectData])
+
   return (
     <form onSubmit={clearSearch}>
       <input type='text' onChange={searchMovies} value={searchData}/>
       <select  onChange={(e) => setSelectData(e.target.value)} value={selectData}>
-        <option value=''>Any</option>
+        <option value='0'>Any</option>
         <option value='10'>10 stars</option>
         <option value='8'>Over 8 stars</option>
         <option value='5'>Over 5 stars</option>

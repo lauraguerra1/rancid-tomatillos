@@ -5,7 +5,7 @@ import Form from '../Form/Form';
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 
-const MoviesBox = ({movies}) => {
+const MoviesBox = ({movies, loading}) => {
   const [filteredMovies, setFilteredMovies] = useState([])
 
   useEffect(() => {
@@ -38,10 +38,11 @@ const MoviesBox = ({movies}) => {
       </Link> 
     );
   });
+  console.log(loading)
 
   return (
     <>
-      <Form resetMovies={resetMovies} filterMovies={filterMovies}/> 
+      {!loading && <Form resetMovies={resetMovies} filterMovies={filterMovies}/>}
       <div className='movie-container'>
         {movieCovers}
         {!filteredMovies.length && <p style={{color: 'red'}}>'Sorry, no movies to display! Try a different search'</p>}

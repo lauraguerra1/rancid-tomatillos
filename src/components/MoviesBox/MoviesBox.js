@@ -17,18 +17,13 @@ const MoviesBox = ({movies}) => {
     setFilteredMovies(movies)
   }
   const filterMovies = (title, rating) => {
-    setFilteredMovies(movies.filter(movie => movie.title.toLowerCase().includes(title.toLowerCase()) && movie['average_rating'] >= parseInt(rating)))
-  }
+    const splitRating = JSON.parse(rating)
 
-  const filterByTitle = (title) => {  
-    setFilteredMovies(movies.filter(movie => movie.title.toLowerCase().includes(title.toLowerCase())))
-  }
-
-  const filterByRating = (rating) => {
     setFilteredMovies(movies.filter(movie => {
-      const is = movie['average_rating'] >= parseInt(rating)
-      console.log(is)
-      return is
+      const titleIncluded = movie.title.toLowerCase().includes(title.toLowerCase())
+      const min = movie['average_rating'] >= parseInt(splitRating[0]) 
+      const max = movie['average_rating'] <= parseInt(splitRating[1])
+      return titleIncluded && min && max ? true : false
     }))
   }
   

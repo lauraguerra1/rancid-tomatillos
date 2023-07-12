@@ -14,11 +14,17 @@ a {
 
 @media screen and (min-width: 600px){
   .movie-cover {
-    max-height: 550px;
+    height: 550px;
   }
 }
 
-@media screen and (min-width: 1500px){
+@media screen and (min-width: 825px){
+  .movie-cover {
+    max-width: 365px;
+  }
+}
+
+@media screen and (min-width: 1250px){
   .movie-cover {
     max-width: 400px;
   }

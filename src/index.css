@@ -11,7 +11,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgba(30, 6, 9, 1);
+  background-color: #1d0006;
 }
 
 code {
@@ -19,9 +19,17 @@ code {
     monospace;
 }
 
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
 .loading {
   border: 8px solid #f41c1c; 
-  border-top: 8px solid rgba(30, 6, 9, 1); 
+  border-top: 8px solid #1d0006; 
   border-radius: 50%;
   width: 100px;
   height: 100px;

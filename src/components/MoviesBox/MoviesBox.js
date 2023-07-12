@@ -1,12 +1,33 @@
 import PropTypes from 'prop-types'
 import './MoviesBox.css';
 import MovieCover from '../MovieCover/MovieCover';
+import Form from '../Form/Form';
 import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react';
 
 const MoviesBox = ({movies}) => {
+  const [filteredMovies, setFilteredMovies] = useState([])
 
+  useEffect(() => {
+    setFilteredMovies(movies)
+    return () => setFilteredMovies(movies)
+  }, [movies])
+
+  const resetMovies = () => {
+    setFilteredMovies(movies)
+  }
+  const filterMovies = (title, rating) => {
+    const splitRating = JSON.parse(rating)
+
+    setFilteredMovies(movies.filter(movie => {
+      const titleIncluded = movie.title.toLowerCase().includes(title.toLowerCase())
+      const min = movie['average_rating'] >= parseInt(splitRating[0]) 
+      const max = movie['average_rating'] <= parseInt(splitRating[1])
+      return titleIncluded && min && max ? true : false
+    }))
+  }
   
-  const movieCovers = movies.map(movie => {
+  const movieCovers = filteredMovies.map(movie => {
     const { average_rating, poster_path: cover, title, id} = movie;
     const movieRating = average_rating.toFixed(2);
       
@@ -19,9 +40,13 @@ const MoviesBox = ({movies}) => {
   });
 
   return (
-    <div className='movie-container'>
-      {movieCovers}
-    </div>
+    <>
+      <Form resetMovies={resetMovies} filterMovies={filterMovies}/> 
+      <div className='movie-container'>
+        {movieCovers}
+        {!filteredMovies.length && <p style={{color: 'red'}}>'Sorry, no movies to display! Try a different search'</p>}
+      </div>
+    </>
   );
 };
 

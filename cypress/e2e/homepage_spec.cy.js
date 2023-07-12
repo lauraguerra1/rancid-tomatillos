@@ -33,4 +33,20 @@ describe('Home page view', () => {
     .get('.title-container').find('.main-title')
     .get('main').contains('h1', 'HTTP Error: 404 -- Please try again')
   })
+
+  it('should search for a movie title', () => {
+    cy.get('.search-container').find('input').type('black')
+    .get('.movie-container').find('.cover-container').should('have.length', 1)
+  })
+
+  it('should display a message if the search is not found', () => {
+    cy.get('.search-container').find('input').type('some movie')
+    .get('.movie-container').find('.cover-container').should('have.length', 0)
+    .get('.movie-container').contains('Sorry, no movies to display! Try a different search')
+  })
+
+  it('should filter ratings', () => {
+    cy.get('.search-container').find('select').select('4-6')
+    .get('.movie-container').find('.cover-container').should('have.length', 2)
+  })
 })

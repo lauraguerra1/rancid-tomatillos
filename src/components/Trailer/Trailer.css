@@ -1,3 +1,7 @@
+.frame-container {
+  width: 100%;
+}
+
 iframe {
   width: 100%;
   min-height: 550px;

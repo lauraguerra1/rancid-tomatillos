@@ -1,13 +1,20 @@
 import './Trailer.css'
+import PropTypes from 'prop-types'
 
 const Trailer = ({trailer}) => {
   return (
-    <iframe 
-    src={trailer} 
-    allowFullScreen
-    title="Embedded youtube trailer"
-    /> 
+    <div className="frame-container" data-cy={trailer}>
+      <iframe 
+      src={trailer} 
+      allowFullScreen
+      title="Embedded youtube trailer"
+      /> 
+    </div>
   )
 }
 
 export default Trailer
+
+Trailer.propTypes = {
+  trailer: PropTypes.string.isRequired
+}

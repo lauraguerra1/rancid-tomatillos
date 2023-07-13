@@ -35,6 +35,7 @@ describe('single movie page', () => {
       .get('.details').children().should('have.length', 9)
       .get('.details').contains('h1', 'Black Adam')
       .get('.details').contains('p', 'Budget: 200000000')
+      .get('[data-cy="https://www.youtube.com/embed/mkomfZHG5q4"]').should('have.length', 1)
       .get('.exit-movie').find('.exit-movie-img').click()
       .url().should('eq', 'http://localhost:3000/')
       .get('.movie-container').find('.cover-container').should('have.length', 3)
@@ -50,6 +51,7 @@ describe('single movie page', () => {
       .get('.details').children().should('have.length', 9)
       .get('.details').contains('h1', 'R.I.P.D. 2: Rise of the Damned')
       .get('.details').contains('p', 'Budget: 130')
+      .get('[data-cy="https://www.youtube.com/embed/L_REOJnLLNI"]').should('have.length', 1)
       .get('.exit-movie').find('.exit-movie-img').click()
       .url().should('eq', 'http://localhost:3000/')
       .get('.movie-container').find('.cover-container').should('have.length', 3)
@@ -61,7 +63,7 @@ describe('single movie page', () => {
     cy.get('.cover-container').first().find('.movie-cover[alt="Black Adam"]').click()
       .url().should('eq', 'http://localhost:3000/436270')
       .get('.title-container').find('.main-title')
-      .get('main').contains('h1', 'HTTP Error: 500 -- Please try again')
+      .get('h1').contains('HTTP Error: 500 -- Please try again')
   })
 
   it('should display a 404 error', () => {
@@ -70,6 +72,6 @@ describe('single movie page', () => {
     cy.get('.cover-container').first().find('.movie-cover[alt="Black Adam"]').click()
       .url().should('eq', 'http://localhost:3000/436270')
       .get('.title-container').find('.main-title')
-      .get('main').contains('h1', 'HTTP Error: 404 -- Please try again')
+      .get('h1').contains('HTTP Error: 404 -- Please try again')
   })
 })

@@ -1,3 +1,5 @@
+import './Trailer.css'
+
 const Trailer = ({trailer}) => {
   return (
     <iframe 

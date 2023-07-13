@@ -36,18 +36,20 @@ const SingleMovie = ({fetchApi, setError}) => {
     
 
     return (
-      <div className='movie-detail-container'>
-        <MovieCover cover={cover} title={title} size={'large-movie-cover'}/>
-        <div className='details'>
-          <h1>{title}</h1>
-          <p>{tagline}</p>
-          <p>{genre.join(' ')}</p>
-          <p>🍅 {movieRating}</p>
-          <p>{overview}</p>
-          <p>Released: {date}</p>
-          <p>{runtime} minutes</p>
-          <p>Budget: {budget}</p>
-          <p>Revenue: {revenue}</p>
+      <div className='trailer-detail-container'>
+        <div className='movie-detail-container'>
+          <MovieCover cover={cover} title={title} size={'large-movie-cover'}/>
+          <div className='details'>
+            <h1>{title}</h1>
+            <p>{tagline}</p>
+            <p>{genre.join(' ')}</p>
+            <p>🍅 {movieRating}</p>
+            <p>{overview}</p>
+            <p>Released: {date}</p>
+            <p>{runtime} minutes</p>
+            <p>Budget: {budget}</p>
+            <p>Revenue: {revenue}</p>
+          </div>
         </div>
         {trailer && <Trailer trailer={trailer} />}
       </div>

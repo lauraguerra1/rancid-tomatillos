@@ -7,11 +7,13 @@ It's not netflix, rotten tomatoes, or even IMBD.
 <br>
 <b>Built With:</b>
 <br>
-REACT | HTML | CSS | REST API
-<br>
-<em>Testing Technologies:</em>
-<br>
-Cypress 
+
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" /> 
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" /> 
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
+  <img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white" />
+<img src="https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e" /> 
 
 [DEPLOYED LINK](https://rancidtomatillos-3e0909ae5fad.herokuapp.com/)
 
@@ -21,6 +23,18 @@ Cypress
 ## Abstract: 
 This is a movie rating website that uses the fetch API to display information about a variety of movies. This web app also allows searching movies by title, and filtering by ratings! To gather more information about a particular movie, users are able to click on the movie and view it's details! The app features network requests to access information about movies and utilizes react router to create a multi-page experience. 
 
+## Preview of App:
+
+### Cell Phone Display: 
+
+
+**ADD GIF HERE**
+
+<br>
+
+### Desktop Display:
+
+**ADD GIF HERE**
 
 ## Installation Instructions 
 - Fork [this](https://github.com/lauraguerra1/rancid-tomatillos) repository. 
@@ -29,20 +43,6 @@ This is a movie rating website that uses the fetch API to display information ab
 - Run the command: `npm install`
 - Run the command: `npm start`
 - Once the modules have finished compiling, enter `http://localhost:3000/` into your browser to see the live web page. 
-
-
-## Preview of App:
-
-### Cell Phone Display: 
-
-
-![whats cookin gif for cell phone](https://user-images.githubusercontent.com/121131581/243466673-6b7b8534-feb7-4e0e-82b3-30c5ae89a772.gif)
-
-<br>
-
-### Desktop Display:
-
-![whats-cookin gif](https://user-images.githubusercontent.com/121131581/243463414-55dc4ba2-79a0-40f6-8642-09d9001f66b3.gif)
 
 
 
@@ -61,11 +61,10 @@ This is a movie rating website that uses the fetch API to display information ab
 
 
 ## Learning Goals:
-- Use object and array prototype methods to perform data manipulation.
-- Create a user interface that is easy to use and clearly displays information.
+- Create a user interface that is easy to use and clearly displays information
 - Write DRY, reusable code that follows SRP and trends toward function purity
-- Implement a robust testing suite using Test Driven Development.
-- Make network requests (using fetch API) to create, read, update, and destroy data. 
-  - (Apply newly learned concepts including GET, POST, PATCH, and DELETE network requests)
-- Collaborate productively and professionally as a team. 
-- Implement the use of a project board, task delegation tickets, and thorough code reviews.
+- Make network requests (using fetch API)
+- Gain competency with React fundamentals
+- Test React components & asynchronous JS
+- Practice refactoring
+- Create a multi-page UX using Router

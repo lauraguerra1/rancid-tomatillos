@@ -1,42 +1,18 @@
-describe('template spec', () => {
+describe('Home page view', () => {
   beforeEach(() => {
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
       statusCode: 200,
-      body: {
-        "movies": [
-          {
-            "id": 436270,
-            "poster_path": "https://image.tmdb.org/t/p/original//pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg",
-            "backdrop_path": "https://image.tmdb.org/t/p/original//bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg",
-            "title": "Black Adam",
-            "average_rating": 4,
-            "release_date": "2022-10-19"
-          },
-          {
-            "id": 724495,
-            "poster_path": "https://image.tmdb.org/t/p/original//438QXt1E3WJWb3PqNniK0tAE5c1.jpg",
-            "backdrop_path": "https://image.tmdb.org/t/p/original//7zQJYV02yehWrQN6NjKsBorqUUS.jpg",
-            "title": "The Woman King",
-            "average_rating": 4,
-            "release_date": "2022-09-15"
-          },
-          {
-            "id": 1013860,
-            "poster_path": "https://image.tmdb.org/t/p/original//g4yJTzMtOBUTAR2Qnmj8TYIcFVq.jpg",
-            "backdrop_path": "https://image.tmdb.org/t/p/original//kmzppWh7ljL6K9fXW72bPN3gKwu.jpg",
-            "title": "R.I.P.D. 2: Rise of the Damned",
-            "average_rating": 7,
-            "release_date": "2022-11-15"
-          }
-        ]
-      }
+      fixture: 'movies'
     })
     .visit('http://localhost:3000')
   })
 
-  it('should display a banner and movie list', () => {
+  it('should display a banner, a search form, and movie list', () => {
     cy.url().should('eq', 'http://localhost:3000/')
       .get('.title-container').find('.main-title')
+      .get('.search-container').find('input[placeholder="search movie title"]')
+      .get('.search-container').find('.search-rating')
+      .get('.search-container').find('#clear-search-btn')
       .get('.movie-container').find('.cover-container').should('have.length', 3)
       .get('.cover-container').first().find('.movie-cover[alt="Black Adam"]')
       .get('.cover-container').first().contains('p', '🍅 4.00')
@@ -56,5 +32,36 @@ describe('template spec', () => {
       statusCode: 404}) 
     .get('.title-container').find('.main-title')
     .get('main').contains('h1', 'HTTP Error: 404 -- Please try again')
+  })
+
+  it('should search for a movie title', () => {
+    cy.get('.search-container').find('input').type('black')
+    .get('.movie-container').find('.cover-container').should('have.length', 1)
+  })
+
+  it('should display a message if the search is not found', () => {
+    cy.get('.search-container').find('input').type('some movie')
+    .get('.movie-container').find('.cover-container').should('have.length', 0)
+    .get('.movie-container').contains('Sorry, no movies to display! Try a different search')
+  })
+
+  it('should filter ratings', () => {
+    cy.get('.search-container').find('select').select('4-6')
+    .get('.movie-container').find('.cover-container').should('have.length', 2)
+  })
+
+  it('should clear all filter results', () => {
+    cy.get('.search-container').find('input[placeholder="search movie title"]').type('woman')
+    .get('.search-container').find('.search-rating').select('4-6')
+    .get('.search-container').find('#clear-search-btn').click()
+    .get('.movie-container').find('.cover-container').should('have.length', 3)
+    .get('.search-container').find('input').should('have.value', '')
+    .get('.search-container').find('.search-rating').should('have.value', '["0","10"]')
+  })
+
+  it('after filtering movies, I should be able to search based off the remaining movies', () => {
+    cy.get('.search-container').find('.search-rating').select('4-6')
+    .get('.search-container').find('input[placeholder="search movie title"]').type('woman')
+    .get('.movie-container').find('.cover-container').should('have.length', 1)
   })
 })

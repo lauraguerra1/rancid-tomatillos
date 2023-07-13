@@ -5,7 +5,7 @@ import Form from '../Form/Form';
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 
-const MoviesBox = ({movies}) => {
+const MoviesBox = ({movies, loading}) => {
   const [filteredMovies, setFilteredMovies] = useState([])
 
   useEffect(() => {
@@ -18,12 +18,13 @@ const MoviesBox = ({movies}) => {
   }
   const filterMovies = (title, rating) => {
     const splitRating = JSON.parse(rating)
-
+    const [ min, max ] = splitRating
     setFilteredMovies(movies.filter(movie => {
       const titleIncluded = movie.title.toLowerCase().includes(title.toLowerCase())
-      const min = movie['average_rating'] >= parseInt(splitRating[0]) 
-      const max = movie['average_rating'] <= parseInt(splitRating[1])
-      return titleIncluded && min && max ? true : false
+      const ratingIsGreater = movie['average_rating'] >= parseInt(min) 
+      const ratingIsSmaller = movie['average_rating'] <= parseInt(max)
+
+      return titleIncluded && ratingIsGreater && ratingIsSmaller ? true : false
     }))
   }
   
@@ -32,7 +33,7 @@ const MoviesBox = ({movies}) => {
     const movieRating = average_rating.toFixed(2);
       
     return (
-      <Link to={`${id}`} className='cover-container' key={id} >
+      <Link to={`${id}`} className='cover-container' key={id}>
         <MovieCover cover={cover} title={title} size={'mini-movie-cover'}/>
         <p className='rating'>🍅 {movieRating}</p>
       </Link> 
@@ -41,10 +42,10 @@ const MoviesBox = ({movies}) => {
 
   return (
     <>
-      <Form resetMovies={resetMovies} filterMovies={filterMovies}/> 
+      {!loading && <Form resetMovies={resetMovies} filterMovies={filterMovies}/>}
       <div className='movie-container'>
         {movieCovers}
-        {!filteredMovies.length && <p style={{color: 'red'}}>'Sorry, no movies to display! Try a different search'</p>}
+        {!filteredMovies.length && <p style={{color: 'red'}}>Sorry, no movies to display! Try a different search</p>}
       </div>
     </>
   );

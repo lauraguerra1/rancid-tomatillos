@@ -49,4 +49,13 @@ describe('Home page view', () => {
     cy.get('.search-container').find('select').select('4-6')
     .get('.movie-container').find('.cover-container').should('have.length', 2)
   })
+
+  it('should clear all filter results', () => {
+    cy.get('.search-container').find('input[placeholder="search movie title"]').type('woman')
+    .get('.search-container').find('.search-rating').select('4-6')
+    .get('.search-container').find('#clear-search-btn').click()
+    .get('.movie-container').find('.cover-container').should('have.length', 3)
+    .get('.search-container').find('input').should('have.value', '')
+    .get('.search-container').find('.search-rating').should('have.value', '["0","10"]')
+  })
 })

@@ -3,6 +3,7 @@ import banner from '../../images/old-school-theater-banner.png';
 import MoviesBox from '../MoviesBox/MoviesBox';
 import SingleMovie from '../SingleMovie/SingleMovie';
 import ExitMovie from '../ExitMovie/ExitMovie';
+import Unknown from '../Unknown/Unknown';
 import { useState, useEffect } from 'react';
 import { getAllMovies } from '../../apiCalls';
 import { Routes, Route, useLocation} from 'react-router-dom'
@@ -45,6 +46,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MoviesBox loading={loading} movies={allMovies} />} />
         <Route path='/:id' element={<SingleMovie fetchApi={fetchApi} setError={setError} />} />
+        <Route path='*' element={<p style={{color: 'red'}}>We're sorry, this page does not exist! Please go back.</p>} />
       </Routes>
     </main>
   );

@@ -46,13 +46,13 @@ describe('Home page view', () => {
   })
 
   it('should filter ratings', () => {
-    cy.get('.search-container').find('select').select('4-6')
+    cy.get('.search-container').find('select').select('🍅 4-6')
     .get('.movie-container').find('.cover-container').should('have.length', 2)
   })
 
   it('should clear all filter results', () => {
     cy.get('.search-container').find('input[placeholder="search movie title"]').type('woman')
-    .get('.search-container').find('.search-rating').select('4-6')
+    .get('.search-container').find('.search-rating').select('🍅 4-6')
     .get('.search-container').find('#clear-search-btn').click()
     .get('.movie-container').find('.cover-container').should('have.length', 3)
     .get('.search-container').find('input').should('have.value', '')
@@ -60,8 +60,12 @@ describe('Home page view', () => {
   })
 
   it('after filtering movies, I should be able to search based off the remaining movies', () => {
-    cy.get('.search-container').find('.search-rating').select('4-6')
+    cy.get('.search-container').find('.search-rating').select('🍅 4-6')
     .get('.search-container').find('input[placeholder="search movie title"]').type('woman')
     .get('.movie-container').find('.cover-container').should('have.length', 1)
+  })
+
+  it('should display a messge for bad URL\'s and allow page exit', () => {
+    cy.visit('http://localhost:3000/nonexistant')
   })
 })

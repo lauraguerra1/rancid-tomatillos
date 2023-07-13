@@ -34,8 +34,8 @@ useEffect(() => {
           <p>{overview}</p>
           <p>Released: {date}</p>
           <p>{runtime} minutes</p>
-          <p>Budget: {budget}</p>
-          <p>Revenue: {revenue}</p>
+          <p>Budget: ${budget}</p>
+          <p>Revenue: ${revenue}</p>
         </div>
       </div>
     );

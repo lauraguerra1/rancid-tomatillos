@@ -43,7 +43,7 @@ function App() {
       {error && <h1 style={{color: 'red'}}>{error.message}</h1>}
       {loading && <div className='loading-container'><span className='loading'></span></div>}
       <Routes>
-        <Route path="/" element={<MoviesBox movies={allMovies} />} />
+        <Route path="/" element={<MoviesBox loading={loading} movies={allMovies} />} />
         <Route path='/:id' element={<SingleMovie fetchApi={fetchApi} setError={setError} />} />
       </Routes>
     </main>

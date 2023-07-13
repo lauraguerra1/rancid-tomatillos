@@ -28,12 +28,12 @@ const Form = ({resetMovies, filterMovies}) => {
           <input type='search' onChange={searchMovies} value={searchData} placeholder='search movie title'/>
           <div className='sml-screen-container'>
           <select className='search-rating' onChange={(e) => setSelectData(e.target.value)} value={selectData}>
-            <option value={'["0","10"]'}>All Ratings</option>
-            <option value={'["8","10"]'}>8-10</option>
-            <option value={'["6","8"]'}>6-8</option>
-            <option value={'["4","6"]'}>4-6</option>
-            <option value={'["2","4"]'}>2-4</option>
-            <option value={'["0","2"]'}>0-2</option>
+            <option value={'["0","10"]'}>All Ratings 🍅</option>
+            <option value={'["8","10"]'}>🍅 8-10</option>
+            <option value={'["6","8"]'}>🍅 6-8</option>
+            <option value={'["4","6"]'}>🍅 4-6</option>
+            <option value={'["2","4"]'}>🍅 2-4</option>
+            <option value={'["0","2"]'}>🍅 0-2</option>
           </select>
           <button type='button' className='material-symbols-outlined' id='clear-search-btn' onClick={clearSearch}>cancel</button>
           </div>

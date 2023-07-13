@@ -45,7 +45,7 @@ const MoviesBox = ({movies, loading}) => {
       {!loading && <Form resetMovies={resetMovies} filterMovies={filterMovies}/>}
       <div className='movie-container'>
         {movieCovers}
-        {!filteredMovies.length && <p style={{color: 'red'}}>Sorry, no movies to display! Try a different search</p>}
+        {!filteredMovies.length && !loading && <p style={{color: 'red'}}>Sorry, no movies to display! Try a different search</p>}
       </div>
     </>
   );

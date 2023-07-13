@@ -58,4 +58,10 @@ describe('Home page view', () => {
     .get('.search-container').find('input').should('have.value', '')
     .get('.search-container').find('.search-rating').should('have.value', '["0","10"]')
   })
+
+  it('after filtering movies, I should be able to search based off the remaining movies', () => {
+    cy.get('.search-container').find('.search-rating').select('4-6')
+    .get('.search-container').find('input[placeholder="search movie title"]').type('woman')
+    .get('.movie-container').find('.cover-container').should('have.length', 1)
+  })
 })

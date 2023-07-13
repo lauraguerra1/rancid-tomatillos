@@ -45,8 +45,8 @@ function App() {
       {loading && <div className='loading-container'><span className='loading'></span></div>}
       <Routes>
         <Route path="/" element={<MoviesBox loading={loading} movies={allMovies} />} />
-        <Route path='/:id' element={<SingleMovie fetchApi={fetchApi} setError={setError} />} />
-        <Route path='*' element={<p style={{color: 'red'}}>We're sorry, this page does not exist! Please go back.</p>} />
+        <Route path='/movie/:id' element={<SingleMovie fetchApi={fetchApi} setError={setError} />} />
+        <Route path='*' element={<Unknown />} />
       </Routes>
     </main>
   );

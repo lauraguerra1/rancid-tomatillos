@@ -33,7 +33,7 @@ const MoviesBox = ({movies, loading}) => {
     const movieRating = average_rating.toFixed(2);
       
     return (
-      <Link to={`${id}`} className='cover-container' key={id}>
+      <Link to={`/movie/${id}`} className='cover-container' key={id}>
         <MovieCover cover={cover} title={title} size={'mini-movie-cover'}/>
         <p className='rating'>🍅 {movieRating}</p>
       </Link> 

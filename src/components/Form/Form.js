@@ -5,6 +5,15 @@ import PropTypes from 'prop-types'
 const Form = ({resetMovies, filterMovies}) => {
   const [searchData, setSearchData] = useState('')
   const [selectData, setSelectData] = useState('["0","10"]')
+  const [clearNeeded, setClearNeeded] = useState(false);
+
+  useEffect(() => {
+    if (searchData || selectData !== '["0","10"]') {
+      setClearNeeded(true)
+    } else {
+      setClearNeeded(false)
+    }
+  }, [searchData, selectData])
 
   const clearSearch = (e) => {
     e.preventDefault()
@@ -35,7 +44,7 @@ const Form = ({resetMovies, filterMovies}) => {
             <option value={'["2","4"]'}>🍅 2-4</option>
             <option value={'["0","2"]'}>🍅 0-2</option>
           </select>
-          <button type='button' className='material-symbols-outlined' id='clear-search-btn' onClick={clearSearch}>cancel</button>
+          {clearNeeded && <button type='button' className='material-symbols-outlined' id='clear-search-btn' onClick={clearSearch}>cancel</button>}
           </div>
         </form>
       </div>

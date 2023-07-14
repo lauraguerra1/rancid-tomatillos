@@ -1,0 +1,15 @@
+.empty-state {
+  max-width: 100%;
+}
+
+.empty-state-container {
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-state-warning {
+  color: red;
+  padding: 1%;
+  font-size: xx-large;
+}

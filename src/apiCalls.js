@@ -18,4 +18,10 @@ const getSingleMovie = async (id) => {
   return data.movie
 }
 
-export {getAllMovies, getSingleMovie}
+const getMovieVideos = async (id) => {
+  const response = await fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`)
+  const data = await handleError(response)
+  return data.videos
+}
+
+export {getAllMovies, getSingleMovie, getMovieVideos}

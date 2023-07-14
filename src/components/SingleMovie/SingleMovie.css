@@ -1,5 +1,8 @@
-.movie-detail-container {
+.trailer-detail-container {
   margin: 2em;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
 }
 
 .details {

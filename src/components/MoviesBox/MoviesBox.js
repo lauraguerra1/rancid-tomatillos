@@ -1,9 +1,12 @@
 import PropTypes from 'prop-types'
 import './MoviesBox.css';
 import MovieCover from '../MovieCover/MovieCover';
+import EmptyState from '../EmptyState/EmptyState'
 import Form from '../Form/Form';
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react';
+import spilledPopcorn from '../../images/spilled-popcorn.png'
+
 
 const MoviesBox = ({movies, loading}) => {
   const [filteredMovies, setFilteredMovies] = useState([])
@@ -33,7 +36,7 @@ const MoviesBox = ({movies, loading}) => {
     const movieRating = average_rating.toFixed(2);
       
     return (
-      <Link to={`${id}`} className='cover-container' key={id}>
+      <Link to={`/movie/${id}`} className='cover-container' key={id}>
         <MovieCover cover={cover} title={title} size={'mini-movie-cover'}/>
         <p className='rating'>🍅 {movieRating}</p>
       </Link> 
@@ -45,7 +48,7 @@ const MoviesBox = ({movies, loading}) => {
       {!loading && <Form resetMovies={resetMovies} filterMovies={filterMovies}/>}
       <div className='movie-container'>
         {movieCovers}
-        {!filteredMovies.length && <p style={{color: 'red'}}>Sorry, no movies to display! Try a different search</p>}
+        {!filteredMovies.length && !loading && <EmptyState img={spilledPopcorn} alt={'spilled popcorn'} warning={'Sorry, no movies to display! Try a different search'} />}
       </div>
     </>
   );

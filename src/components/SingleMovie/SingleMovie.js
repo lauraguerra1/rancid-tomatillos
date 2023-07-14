@@ -23,7 +23,7 @@ const SingleMovie = ({fetchApi, setError}) => {
   }, [])
 
   useEffect(() => {
-    if(movieVideos?.length) {
+    if(movieVideos.length) {
       const trailerKey = movieVideos.find(video => video.type === 'Trailer').key
       setTrailer(`https://www.youtube.com/embed/${trailerKey}`)
     }
@@ -39,17 +39,17 @@ const SingleMovie = ({fetchApi, setError}) => {
       <div className='trailer-detail-container'>
         <div className='movie-detail-container'>
           <MovieCover cover={cover} title={title} size={'large-movie-cover'}/>
-          <div className='details'>
+          <article className='details'>
             <h1>{title}</h1>
-            <p>{tagline}</p>
-            <p>{genre.join(' ')}</p>
+            <p><i>{tagline}</i></p>
+            <p><b>{genre.join(' ')}</b></p>
             <p>🍅 {movieRating}</p>
             <p>{overview}</p>
             <p>Released: {date}</p>
             <p>{runtime} minutes</p>
-            <p>Budget: {budget}</p>
-            <p>Revenue: {revenue}</p>
-          </div>
+            <p>Budget: ${budget}</p>
+            <p>Revenue: ${revenue}</p>
+          </article>
         </div>
         {trailer && <Trailer trailer={trailer} />}
       </div>

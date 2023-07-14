@@ -21,20 +21,35 @@ It's not netflix, rotten tomatoes, or even IMBD.
 
 
 ## Abstract: 
-This is a movie rating website that uses the fetch API to display information about a variety of movies. This web app also allows searching movies by title, and filtering by ratings! To gather more information about a particular movie, users are able to click on the movie and view it's details! The app features network requests to access information about movies and utilizes react router to create a multi-page experience. 
+This is a movie rating website that uses the fetch API to display information about a variety of movies. This web app allows users to search movies by title, filter by ratings, and watch movie trailers! To gather more information about a particular movie, users are able to click on the movie and view it's details! The app features network requests to access information about movies and utilizes react router to create a multi-page experience. 
 
 ## Preview of App:
 
-### Cell Phone Display: 
+<div align="center">
 
+  <h2> Cell Phone Display: </h2>
 
-**ADD GIF HERE**
+  <img height="300px" src="./src/images/cell-phone.gif" alt='demo of app on a cell phone'>
 
-<br>
+  <br>  
 
-### Desktop Display:
+  <h2> Watch A Traler: </h2>
 
-**ADD GIF HERE**
+  <img src="./src/images/trailer-demo.gif" alt='demo of app displaying a trailer'>
+
+  <br>
+
+  <h2> Bad URL & Empty State: </h2>
+
+  <img src="./src/images/empty-state-demo.gif" alt='demo of app showing empty search state and bad url redirect'>
+
+  <br>
+
+  <h2> Search & Filter: </h2>
+
+  <img src="./src/images/search-demo.gif" alt='demo of app sarching and filtering through movies' >
+
+</div>
 
 ## Installation Instructions 
 - Fork [this](https://github.com/lauraguerra1/rancid-tomatillos) repository. 

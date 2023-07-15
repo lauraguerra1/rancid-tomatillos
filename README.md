@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+<div align="center">
+<h1> RANCID TOMATILLOS </h1>
+It's not netflix, rotten tomatoes, or even IMBD.
+<br> 
+<em> It's better.</em>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br>
+<b>Built With:</b>
+<br>
 
-## Available Scripts
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" /> 
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" /> 
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
+  <img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white" />
+<img src="https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e" /> 
 
-In the project directory, you can run:
+[DEPLOYED LINK](https://rancidtomatillos-3e0909ae5fad.herokuapp.com/)
 
-### `npm start`
+</div>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Abstract: 
+This is a movie rating website that uses the fetch API to display information about a variety of movies. This web app allows users to search movies by title, filter by ratings, and watch movie trailers! To gather more information about a particular movie, users are able to click on the movie and view it's details! The app features network requests to access information about movies and utilizes react router to create a multi-page experience. 
 
-### `npm test`
+## Preview of App:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<div align="center">
 
-### `npm run build`
+  <h2> Cell Phone Display: </h2>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  <img height="300px" src="./src/images/cell-phone.gif" alt='demo of app on a cell phone'>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  <br>  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  <h2> Watch A Traler: </h2>
 
-### `npm run eject`
+  <img src="./src/images/trailer-demo.gif" alt='demo of app displaying a trailer'>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  <br>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  <h2> Bad URL & Empty State: </h2>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  <img src="./src/images/empty-state-demo.gif" alt='demo of app showing empty search state and bad url redirect'>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  <br>
 
-## Learn More
+  <h2> Search & Filter: </h2>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  <img src="./src/images/search-demo.gif" alt='demo of app sarching and filtering through movies' >
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+</div>
 
-### Code Splitting
+## Installation Instructions 
+- Fork [this](https://github.com/lauraguerra1/rancid-tomatillos) repository. 
+- Clone it to your local machine using the command: `git clone git@github.com:lauraguerra1/rancid-tomatillos.git`.
+- Run the command: `cd rancid-tomatillos`
+- Run the command: `npm install`
+- Run the command: `npm start`
+- Once the modules have finished compiling, enter `http://localhost:3000/` into your browser to see the live web page. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Context: 
+- Mod 3, Week 1 - Week 2: 
+  - We are current students of Turing School of Software & Design. 
+  - Turing is a 7 month program, which offers a total of 4 modules. 
+  - This project was completed during the third module that the program has to offer. 
 
-### Making a Progressive Web App
+- A total of approximately 30 hours was spent on this project between 2 contributors. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Contributors: 
+- [Laura Garcia Guerra](https://github.com/lauraguerra1)
 
-### Advanced Configuration
+- [Jason Alberto](https://github.com/jalbe0076)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Learning Goals:
+- Create a user interface that is easy to use and clearly displays information
+- Write DRY, reusable code that follows SRP and trends toward function purity
+- Make network requests (using fetch API)
+- Gain competency with React fundamentals
+- Test React components & asynchronous JS
+- Practice refactoring
+- Create a multi-page UX using Router

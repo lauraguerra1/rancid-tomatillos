@@ -40,12 +40,12 @@ function App() {
     <main className="main-app">
       <figure className='title-container'>
         <img className='main-title' src={banner} alt='old school theater banner with the title rancid tomatillos' />
-        {location.pathname !== "/rancid-tomatillos" && <ExitMovie />}
+        {location.pathname !== "/" && <ExitMovie />}
       </figure>
       {error && <h1 style={{color: 'red'}}>{error.message}</h1>}
       {loading && <div className='loading-container'><span className='loading'></span></div>}
       <Routes>
-        <Route path="/rancid-tomatillos" element={<MoviesBox loading={loading} movies={allMovies} />} />
+        <Route path="/" element={<MoviesBox loading={loading} movies={allMovies} />} />
         <Route path='/movie/:id' element={<SingleMovie fetchApi={fetchApi} setError={setError} />} />
         <Route path='*' element={<EmptyState img={movieGoer} alt={'person sitting in movie theater seat while drinking a soda and spilling popcorn'} warning={'We\'re sorry, this page does not exist! Please go back.'} />} />
       </Routes>

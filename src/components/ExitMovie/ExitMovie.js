@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
 const ExitMovie = () => {
   return (
-    <Link to="/" className='exit-movie'>
+    <Link to="/rancid-tomatillos" className='exit-movie'>
       <img className='exit-movie-img' src={exitBanner} alt='return to page with all movies' />
     </Link>
   );

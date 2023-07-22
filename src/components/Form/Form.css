@@ -53,6 +53,10 @@ input::placeholder {
   font-size: 2rem;
 }
 
+.clear-btn:hover {
+  cursor: pointer;
+}
+
 @media (max-width: 425px) {
   .search-movies, .form-container {
     flex-direction: column;

@@ -44,7 +44,7 @@ const Form = ({resetMovies, filterMovies}) => {
             <option value={'["2","4"]'}>🍅 2-4</option>
             <option value={'["0","2"]'}>🍅 0-2</option>
           </select>
-          {clearNeeded && <button type='button' className='material-symbols-outlined' id='clear-search-btn' onClick={clearSearch}>cancel</button>}
+          {clearNeeded && <button type='button' className='material-symbols-outlined clear-btn' id='clear-search-btn' onClick={clearSearch}>cancel</button>}
           </div>
         </form>
       </div>

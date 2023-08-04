@@ -15,7 +15,7 @@ It's not netflix, rotten tomatoes, or even IMBD.
   <img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white" />
 <img src="https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e" /> 
 
-[DEPLOYED LINK](https://rancidtomatillos-3e0909ae5fad.herokuapp.com/)
+[DEPLOYED LINK](https://rancid-tomatillos-laura.vercel.app/)
 
 </div>
 
